@@ -28,7 +28,6 @@ var getChunks = function(phrase){
         groups.push(chunk);
     }
     console.log(groups + " array of strings");
-
     return groups;
 }
 /**
@@ -72,8 +71,6 @@ var cryptoSquare = function(phrase){
     var tempChunk = "";
     // array to hold cryptochunks
     var cryptoArray = [];
-    // flag to see if last array item is shorter than the rest
-    var flag = false;
     // iterate over the the length of the strings
     for (var i = 0; i < chunkLen; i++){
         for (var j = 0; j < numOfGroups; j++){
@@ -89,8 +86,8 @@ var cryptoSquare = function(phrase){
                     cryptoArray.push(tempChunk);
                 }
             }
-        }
-    }
+        }// end iteration through last group
+    }// end iteration through last char
     var output = cryptoArray.join(" ");
     return output;
 }
