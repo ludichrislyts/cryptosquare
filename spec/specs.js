@@ -1,17 +1,23 @@
-describe('cryptosquare', function(){
+describe('getLowerString', function(){
     it("turns input string to lowercase", function(){
-        expect(cryptosquare("HELLO")).to.equal("hel lo");
+        expect(getLowerString("HELLO")).to.equal("hello");
     });
+});
 
-    it("removes a space from a phrase", function(){
-        expect(cryptosquare("Hello there")).to.equal("Hell othe re")
-    })
-
+describe('alphaOnly', function(){
     it("removes spaces and punctuation from the phrase", function(){
-        expect(cryptosquare("Hello, let's remove special characters.")).to.equal("helloletsremovespecialcharacters");
+        expect(alphaOnly("hello, let's remove special characters.")).to.equal("helloletsremovespecialcharacters");
     });
+});
 
-    it("squares the characters into equal length strings", function (){
-        expect(cryptosquare("helloletsremovespecialcharacters")).to.equal("hellol etsrem ovespe cialch aracte rs");
+describe('getChunks', function(){
+    it("squares the characters into equal length strings in an array", function(){
+        expect(getChunks("helloletsremovespecialcharacters")).to.eql(['hellol','etsrem','ovespe','cialch','aracte','rs']);
+    });
+});
+
+describe('cryptoSquare', function(){
+    it("returns a \"cryptosquare\" ecrypted string in groups of 5 letters", function(){
+        expect(cryptoSquare("don't compare yourself to others, compare yourself to the person you were yesterday")).to.equal("drfcu hotoe toreu enyom spwrt oopee edcut alrra orhrf seyms eetoy peryo neals otys");
     });
 });
